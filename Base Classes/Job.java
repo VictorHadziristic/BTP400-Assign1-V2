@@ -20,6 +20,10 @@ public class Job implements Serializable {
         return assemblyTasks;
     }
 
+    public boolean isJobComplete(){
+        return (this.assemblyTasks.size() == 0);
+    }
+
     public Task getCurrentTask(){
         return this.assemblyTasks.get(0);
     }

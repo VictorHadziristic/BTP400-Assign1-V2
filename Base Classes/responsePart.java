@@ -3,13 +3,13 @@ package Assign1;
 import java.io.Serializable;
 
 public class responsePart implements Serializable {
-    boolean orderStatus;
+    Inventory inventory;
 
-    public responsePart(boolean orderStatus) {
-        this.orderStatus = orderStatus;
+    public responsePart(Inventory inventory) {
+        this.inventory = inventory;
     }
 
-    public boolean getOrderStatus() {
-        return orderStatus;
+    public Inventory getBody() {
+        return inventory;
     }
 }

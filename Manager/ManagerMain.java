@@ -42,9 +42,7 @@ public class ManagerMain {
                                 while(true){
                                     Message order = (Message) objectInputStream.readObject();
                                     if(order.getMessageType().equals(MessageType.PART_REQUEST)){
-                                        if(){
 
-                                        }
                                     }else if(order.getMessageType().equals(MessageType.STATUS_UPDATE)){
                                         // TO DO
                                     }
@@ -69,42 +67,59 @@ public class ManagerMain {
         chassisPartList.put(partRegistry.get(4), 20);
         chassisPartList.put(partRegistry.get(0), 4);
         chassisPartList.put(partRegistry.get(1), 4);
+        Inventory chassisInventory = new Inventory(chassisPartList);
+
         Map<Part, Integer> drivetrainPartList = new HashMap();
         drivetrainPartList.put(partRegistry.get(1), 7);
         drivetrainPartList.put(partRegistry.get(9), 1);
         drivetrainPartList.put(partRegistry.get(10), 2);
+        Inventory drivetrainInventory = new Inventory(drivetrainPartList);
+
         Map<Part, Integer> bodyPartList = new HashMap();
         bodyPartList.put(partRegistry.get(2), 2);
         bodyPartList.put(partRegistry.get(3), 4);
         bodyPartList.put(partRegistry.get(4), 10);
+        Inventory bodyInventory = new Inventory(bodyPartList);
+
         Map<Part, Integer> wheelPartList = new HashMap();
         wheelPartList.put(partRegistry.get(6), 4);
         wheelPartList.put(partRegistry.get(5), 4);
         wheelPartList.put(partRegistry.get(1), 24);
+        Inventory wheelInventory = new Inventory(wheelPartList);
+
         Map<Part, Integer> collisionSensorPartList = new HashMap();
         collisionSensorPartList.put(partRegistry.get(9), 1);
         collisionSensorPartList.put(partRegistry.get(10), 1);
+        Inventory collisionSensorInventory = new Inventory(collisionSensorPartList);
+
         Map<Part, Integer> paintPartList = new HashMap();
         paintPartList.put(partRegistry.get(7), 2);
+        Inventory paintInventory = new Inventory(paintPartList);
+
         Map<Part, Integer> leatherSeatPartList = new HashMap();
         leatherSeatPartList.put(partRegistry.get(8), 4);
         leatherSeatPartList.put(partRegistry.get(2), 2);
+        Inventory leatherSeatInventory = new Inventory(leatherSeatPartList);
+
         Map<Part, Integer> sportPartList = new HashMap();
         sportPartList.put(partRegistry.get(7), 4);
         sportPartList.put(partRegistry.get(0), 1);
         sportPartList.put(partRegistry.get(4), 7);
+        Inventory sportInventory = new Inventory(sportPartList);
+
         Map<Part, Integer> VINPartList = new HashMap();
         VINPartList.put(partRegistry.get(10), 2);
+        Inventory VINInventory = new Inventory(VINPartList);
 
-        Task chassis = new Task(1,true, taskType.INITIAL,5000,chassisPartList,"Installing chassis");
-        Task drivetrain = new Task(2, true, taskType.INTERMEDIATE, 7000, drivetrainPartList, "Installing Drivetrain");
-        Task body = new Task(3, true, taskType.INTERMEDIATE, 2500, bodyPartList, "Installing Body");
-        Task wheels = new Task(4, true, taskType.INTERMEDIATE, 5000, wheelPartList, "Installing wheels and brakes");
-        Task collision = new Task(5, false, taskType.INTERMEDIATE, 2000, collisionSensorPartList, "Installing Collision Sensors (Optional)");
-        Task paint = new Task(6, true, taskType.INTERMEDIATE, 5000, paintPartList, "Painting car");
-        Task leatherSeat = new Task(7, false, taskType.INTERMEDIATE, 6000, leatherSeatPartList, "Installing Leather seats");
-        Task sportPackage = new Task(8, false, taskType.INTERMEDIATE, 10000, sportPartList, "Installing Sport Package");
-        Task VIN = new Task(9, true, taskType.FINAL,5000, VINPartList, "Engraving VIN");
+        Task chassis = new Task(1,true, taskType.INITIAL,5000, chassisInventory,"Installing chassis");
+        Task drivetrain = new Task(2, true, taskType.INTERMEDIATE, 7000, drivetrainInventory, "Installing Drivetrain");
+        Task body = new Task(3, true, taskType.INTERMEDIATE, 2500, bodyInventory, "Installing Body");
+        Task wheels = new Task(4, true, taskType.INTERMEDIATE, 5000, wheelInventory, "Installing wheels and brakes");
+        Task collision = new Task(5, false, taskType.INTERMEDIATE, 2000, collisionSensorInventory, "Installing Collision Sensors (Optional)");
+        Task paint = new Task(6, true, taskType.INTERMEDIATE, 5000, paintInventory, "Painting car");
+        Task leatherSeat = new Task(7, false, taskType.INTERMEDIATE, 6000, leatherSeatInventory, "Installing Leather seats");
+        Task sportPackage = new Task(8, false, taskType.INTERMEDIATE, 10000, sportInventory, "Installing Sport Package");
+        Task VIN = new Task(9, true, taskType.FINAL,5000, VINInventory, "Engraving VIN");
 
         ArrayList<Station> allStations = new ArrayList<>();
 

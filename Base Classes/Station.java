@@ -2,6 +2,8 @@ package Assign1;
 
 import java.io.Serializable;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Station implements Serializable {
     private int id;
@@ -10,13 +12,14 @@ public class Station implements Serializable {
     private Job currentJob = null;
     private Socket socketReceive = null;
     private Socket socketTransmit = null;
+    private HashMap<Part, Integer> inventory;
 
     public Station(int id, Task task, Socket socketReceive, Socket socketTransmit) {
         this.id = id;
         this.task = task;
         this.socketReceive = socketReceive;
         this.socketTransmit = socketTransmit;
-        this.stationStatus = Assign1.stationStatus.WAITING;;
+        this.stationStatus = Assign1.stationStatus.WAITING;
     }
 
     public int getId() {
@@ -50,4 +53,5 @@ public class Station implements Serializable {
     public void setStationStatus(Assign1.stationStatus stationStatus) {
         this.stationStatus = stationStatus;
     }
+
 }

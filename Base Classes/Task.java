@@ -8,7 +8,7 @@ public class Task implements Serializable {
     boolean isMandatory;
     taskType taskType;
     int taskDuration;
-    Map<Part, Integer> taskParts;
+    Inventory taskParts;
     String taskDescription;
 
     public boolean isMandatory() {
@@ -27,7 +27,7 @@ public class Task implements Serializable {
         return taskDuration;
     }
 
-    public Map<Part, Integer> getTaskParts() {
+    public Inventory getTaskParts() {
         return taskParts;
     }
 
@@ -35,7 +35,7 @@ public class Task implements Serializable {
         return taskDescription;
     }
 
-    public Task(int id, boolean isMandatory, Assign1.taskType taskType, int taskDuration, Map<Part, Integer> taskParts, String taskDescription) {
+    public Task(int id, boolean isMandatory, Assign1.taskType taskType, int taskDuration, Inventory taskParts, String taskDescription) {
         this.id = id;
         this.isMandatory = isMandatory;
         this.taskType = taskType;

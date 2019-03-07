@@ -3,19 +3,13 @@ package Assign1;
 import java.io.Serializable;
 
 public class requestPart implements Serializable {
-    int taskID;
-    int stationID;
+    Station station;
 
-    public requestPart(int taskID, int stationID) {
-        this.taskID = taskID;
-        this.stationID = stationID;
+    public requestPart(Station station) {
+        this.station = station;
     }
 
-    public int getTaskID() {
-        return taskID;
-    }
-
-    public int getStationID() {
-        return stationID;
+    public Station getStation() {
+        return station;
     }
 }

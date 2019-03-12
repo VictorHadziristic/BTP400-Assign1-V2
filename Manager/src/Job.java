@@ -1,15 +1,22 @@
-package Assign1;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Job implements Serializable {
     int id;
     ArrayList<Task> assemblyTasks;
+    int jobTries = 0;
 
     public Job(int id, ArrayList<Task> assemblyTasks) {
         this.id = id;
         this.assemblyTasks = assemblyTasks;
+    }
+
+    public void incrementJobTries(){
+        this.jobTries++;
+    }
+
+    public int getJobTries() {
+        return jobTries;
     }
 
     public int getId() {

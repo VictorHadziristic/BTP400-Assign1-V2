@@ -1,7 +1,4 @@
-package Assign1;
-
 import java.io.Serializable;
-import java.util.Map;
 
 public class Task implements Serializable {
     int id;
@@ -19,7 +16,7 @@ public class Task implements Serializable {
         return id;
     }
 
-    public Assign1.taskType getTaskType() {
+    public taskType getTaskType() {
         return taskType;
     }
 
@@ -35,7 +32,7 @@ public class Task implements Serializable {
         return taskDescription;
     }
 
-    public Task(int id, boolean isMandatory, Assign1.taskType taskType, int taskDuration, Inventory taskParts, String taskDescription) {
+    public Task(int id, boolean isMandatory, taskType taskType, int taskDuration, Inventory taskParts, String taskDescription) {
         this.id = id;
         this.isMandatory = isMandatory;
         this.taskType = taskType;

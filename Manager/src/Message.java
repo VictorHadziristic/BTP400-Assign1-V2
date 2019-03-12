@@ -1,9 +1,9 @@
-package Assign1;
-
 import java.io.Serializable;
 
 public class Message implements Serializable {
     MessageType messageType;
+
+    Job job = null;
 
     requestPart requestPart = null;
     responsePart responsePart = null;
@@ -13,6 +13,11 @@ public class Message implements Serializable {
     public Message(requestPart requestPart){
         this.messageType = MessageType.PART_REQUEST;
         this.requestPart = requestPart;
+    }
+
+    public Message(Job job){
+        this.messageType = MessageType.JOB;
+        this.job = job;
     }
 
     public Message(responsePart responsePart){
@@ -25,19 +30,21 @@ public class Message implements Serializable {
         this.stationStatusUpdate = stationStatusUpdate;
     }
 
+    public Job getJob() { return job; }
+
     public MessageType getMessageType() {
         return messageType;
     }
 
-    public Assign1.requestPart getRequestPart() {
+    public requestPart getRequestPart() {
         return requestPart;
     }
 
-    public Assign1.responsePart getResponsePart() {
+    public responsePart getResponsePart() {
         return responsePart;
     }
 
-    public Assign1.stationStatusUpdate getStationStatusUpdate() {
+    public stationStatusUpdate getStationStatusUpdate() {
         return stationStatusUpdate;
     }
 }
